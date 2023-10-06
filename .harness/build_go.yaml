@@ -1,0 +1,37 @@
+pipeline:
+  name: "build go "
+  identifier: build_go
+  projectIdentifier: default_project
+  orgIdentifier: default
+  tags: {}
+  properties:
+    ci:
+      codebase:
+        connectorRef: account.Github
+        repoName: git@github.com:kiran894/gosample.git
+        build: <+input>
+  stages:
+    - stage:
+        name: "build go "
+        identifier: build_go
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          platform:
+            os: Linux
+            arch: Arm64
+          runtime:
+            type: Cloud
+            spec: {}
+          execution:
+            steps:
+              - step:
+                  type: BuildAndPushDockerRegistry
+                  name: BuildAndPushDockerRegistry_1
+                  identifier: BuildAndPushDockerRegistry_1
+                  spec:
+                    connectorRef: account.harnessImage
+                    repo: gosample
+                    tags:
+                      - harness
