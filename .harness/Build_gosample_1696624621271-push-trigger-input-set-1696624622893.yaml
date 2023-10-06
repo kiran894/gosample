@@ -1,5 +1,6 @@
 inputSet:
   name: Build_gosample_1696624621271-push-trigger-input-set
+  tags: {}
   identifier: Build_gosample_1696624621271pushtriggerinputset
   orgIdentifier: default
   projectIdentifier: citest
@@ -11,4 +12,4 @@ inputSet:
           build:
             type: branch
             spec:
-              branch: <+trigger.branch>
+              branch: master
